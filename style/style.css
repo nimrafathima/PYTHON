@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.menu{
+    height: 12vh;
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    display: flex;
+}
+
+
+.if_logo{
+    margin-left: 20vh;
+    height: 8vh;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#qts{
+    position: absolute;
+    top: 25%;
+    left: 22%;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 30px;
+    box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.5);
+    background-color: forestgreen;
+}
+
+#qts-h1{
+    margin-top: 4vh;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+#gabarito{
+    position: absolute;
+    top: 25%;
+    right: 22%;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 30px;
+    box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.5);
+    background-color: forestgreen;
+}
+
+#gabarito-h1{
+    margin-top: 4vh;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+hr{
+   width: 100%;
+}
