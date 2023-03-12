@@ -3,21 +3,24 @@ import cv2
 import numpy as np
 from pyzbar.pyzbar import decode
 
+# Detectar img
+img = cv2.imread("qrcode.png")
+
 # Detectar camera
-video = cv2.VideoCapture(0)
+# video = cv2.VideoCapture(0)
 
 # Tamanho da camera
-video.set(3,640) #Largura
-video.set(4, 480) #Altura
+# video.set(3,640) #Largura
+# video.set(4, 480) #Altura
 
 # Enquanto o loop for verdade
 while True:
 
     # Salvar a imagem capturada na camera
-    sucesso, img=video.read()
+    sucesso, qrcode=img.read()
 
     # Detectar os qr/barcode na img
-    for barcode in decode(img):
+    for barcode in decode(qrcode):
 
         # Decodifica qr/barcode
         mydata=barcode.data.decode('utf-8')
@@ -32,7 +35,7 @@ while True:
         pts = pts.reshape((-1, 1, 2))
 
         # Criar retangulo para qr/barcode
-        cv2.polylines(img, # Imagem
+        cv2.polylines(qrcode, # Imagem
                       [pts], # Coordenadas
                       True, # O polígono está fechado
                       (0, 0, 255), # Cor do polígono
@@ -42,7 +45,7 @@ while True:
         pts2=barcode.rect
 
         # Criar texto
-        cv2.putText(img, # Imagem
+        cv2.putText(qrcode, # Imagem
                     mydata, # Texto que vai aparecer
                     (pts2[0], pts2[1]), # Coordenadas
                     cv2.FONT_HERSHEY_SIMPLEX, # Tipo de letra
@@ -51,7 +54,7 @@ while True:
                     3) # Espessura da letra
 
     # Mostrar a camera
-    cv2.imshow('Janela', img)
+    cv2.imshow('Janela', qrcode)
 
     # Para a camera não fechar
     cv2.waitKey(1)
